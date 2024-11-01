@@ -39,7 +39,16 @@ Ez az alkalmazás egy bibliai verset jelenít meg naponta egyszer.  A megjelení
 
 Az alkalmazás naponta egyszer kér be egy új bibliai verset.  A `log.json` fájl tárolja az utoljára megjelenített vers azonosítóját és dátumát.  A szerver ezt ellenőrzi minden kérésnél. Ha új nap van, véletlenszerűen választ egy verset a `data.json` fájlból, aminek az azonosítója nagyobb az előzőnél, és a szentiras.hu API-ját használja a vers szövegének lekéréséhez.  Ellenkező esetben, visszaküldi a `log.json`-ban tárolt verset.
 
+## ⚙️ Fordítás módosítása
 
+A script alapértelmezésben a SZIT fordítást használja.  Ha másik fordítást szeretnél használni, módosítsd a `getVerse` függvényben a `translation` paraméter értékét:
+
+```javascript
+async function getVerse(reference, translation = 'SZIT') #  <- Itt módosíthatod a fordítást
+{
+    const url = `https://szentiras.hu/api/idezet/${reference}/${translation}`;
+    # ...
+```
 
 ## Lehetséges hibák és megoldásaik ⚠️
 
