@@ -37,7 +37,7 @@ Ez az alkalmazás egy bibliai verset jelenít meg naponta egyszer.  A megjelení
 
 ## Működés 💡
 
-Az alkalmazás naponta egyszer kér be egy új bibliai verset.  A `log.json` fájl tárolja az utoljára megjelenített vers azonosítóját és dátumát.  A szerver ezt ellenőrzi minden kérésnél. Ha új nap van, véletlenszerűen választ egy verset a `data.json` fájlból, aminek az azonosítója nagyobb az előzőnél, és a szentiras.hu API-ját használja a vers szövegének lekéréséhez.  Ellenkező esetben, visszaküldi a `log.json`-ban tárolt verset.
+Az alkalmazás naponta egyszer kér be egy új bibliai verset.  A `log.json` fájl tárolja az utoljára megjelenített vers azonosítóját és dátumát.  A szerver ezt ellenőrzi minden kérésnél. Ha új nap van, választ egy verset a `data.json` fájlból, aminek az azonosítója eggyel nagyobb az előzőnél (tehát a soron következőt), és a szentiras.hu API-ját használja a vers szövegének lekéréséhez.  Ellenkező esetben, visszaküldi a `log.json`-ban tárolt verset.
 
 ## ⚙️ Fordítás módosítása
 
