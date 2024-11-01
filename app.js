@@ -103,22 +103,6 @@ async function getVerse(reference, translation = 'SZIT') {
     }
 }
 
-const verseReferences = loadVerseReferences();
-let currentVerseId = loadLog().lastVerseId;
-
-// Óránkénti ellenőrzés beállítása
-setInterval(() => {
-    const log = loadLog();
-    const now = moment().tz('Europe/Budapest');
-    const lastRequest = moment(log.lastRequestDate);
-
-    if (!now.isSame(lastRequest, 'day')) {
-        currentVerseId = (currentVerseId + 1) % verseReferences.length;
-        saveLog(currentVerseId);
-        console.log("Új vers beállítva:", currentVerseId);
-    }
-}, 60 * 60 * 1000);
-
 app.get('/verse', async (req, res) => {
     if (!verseReferences.length) {
         return res.status(500).json({ error: "Nincsenek betöltve bibliai vers hivatkozások. Kérem, ellenőrizze a data.json fájlt." });
