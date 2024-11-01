@@ -44,10 +44,16 @@ Az alkalmazás naponta egyszer kér be egy új bibliai verset.  A `log.json` fá
 A script alapértelmezésben a SZIT fordítást használja.  Ha másik fordítást szeretnél használni, módosítsd a `getVerse` függvényben a `translation` paraméter értékét:
 
 ```javascript
+
 async function getVerse(reference, translation = 'SZIT') #  <- Itt módosíthatod a fordítást
 {
     const url = `https://szentiras.hu/api/idezet/${reference}/${translation}`;
     # ...
+```
+Valamint itt is:
+
+```javascript
+    const verse = await getVerse(verseData.reference, 'SZIT');
 ```
 
 ## Lehetséges hibák és megoldásaik ⚠️
