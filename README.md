@@ -56,6 +56,19 @@ Valamint itt is:
     const verse = await getVerse(verseData.reference, 'SZIT');
 ```
 
+## ❗❗❗ Fontos
+
+Mivel a program a konkrét szentírási részt nyeri ki a szentiras.hu-ból, ezért vesszőhibák, idézőjelhibák és félbehagyott mondatok keletkezhetnek:
+
+Például: Józsue könyve: [Józsue könyve: 1. fejezet](https://szentiras.hu/SZIT/J%C3%B3zs1) ➡️ [9-es rész](https://szentiras.hu/SZIT/J%C3%B3zs1,9)
+
+Hát nem azt a parancsot adtam neked, `9` hogy légy...
+
+Mivel az 1. fejezet `9` része itt kezdődik, ezért így fog kinézni:
+
+_hogy légy erős és kitartó? Ne félj és ne aggódj tehát, mert az Úr, a te Istened veled lesz mindenütt, ahova csak mész.”_
+
+
 ## Lehetséges hibák és megoldásaik ⚠️
 
 * **Hiba a vers lekérése közben:**  Ellenőrizd az internetkapcsolatodat, és hogy a szentiras.hu API elérhető-e.
